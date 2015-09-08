@@ -1,8 +1,7 @@
-var askExpert = angular.module('askExpert', ['ui.router']);
+var express = require('express');
+var app = express();
+app.use(express.static(__dirname + '/public'));
 
-askExpert.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider.state('home', {
-    url: '',
-    templateUrl: 'partials/home.html'
-  });
+app.listen(3000, function() {
+  console.log('listening on port 3000');
 });

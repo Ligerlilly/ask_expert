@@ -1,0 +1,15 @@
+.brand-logo {
+  margin-left: 1em;
+
+}
+nav .brand-logo{
+  color: black;
+}
+
+nav {
+  background-color: white;
+}
+
+nav ul a {
+  color: black;
+}
