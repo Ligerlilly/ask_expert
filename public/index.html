@@ -8,6 +8,8 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <script src='controllers/QuestionsController.js'></script>
+    <script src='services/AskFactory.js'></script>
   </head>
   <body>
     <nav>
@@ -21,9 +23,9 @@
     <img class= 'big_pic' src=https://poesypluspolemics.files.wordpress.com/2013/07/bg_woodworking.jpg alt="wood working" />
     <nav>
       <div class='nav-wrapper'>
-        <a href="/" class='brand-logo'>Ask Expert</a>
+        <a ui-sref='questions' class='brand-logo'>Ask Expert</a>
         <ul id='nav-mobile' class='right'>
-          <li><a href="#">test</a></li>
+          <li><a href="#">question</a></li>
         </ul>
       </div>
     </nav>
