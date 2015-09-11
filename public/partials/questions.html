@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col s12">
-    <form ng-submit='AskFactory.addQuestion()' class='ui form' role='form'>
+    <form ng-submit='createQuestion()' class='ui form' role='form'>
       <div class='field'>
         <label>Question</label>
-        <input type="text" ng-model='questionText' placeholder='question'>
+        <input type="text" ng-model='formData.text' placeholder='question'>
       </div>
-      <button type='submit' class='ui button'>Submit</button>
+      <button type='submit' class='ui button' >Submit</button>
     </form>
 
   </div>
