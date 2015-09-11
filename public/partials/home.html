@@ -1,8 +1,14 @@
-<div class='ui vertically divided three column grid'>
+<div class='ui vertically divided three column grid' ng-init='AskFactory.getQuestions()'>
   <div class='row'>
     <div class='column' ng-repeat='question in AskFactory.questionData'>
-      <img src="http://placehold.it/300x200" alt="placeholder" />
-      {{ question.text }}
+      <div class="item">
+        <div class="image">
+          <img src="http://placehold.it/300x200" alt="placeholder" />
+        </div>
+        <div class="middle aligned content">
+          <span class="ui large red label">Q</span> <span>{{ question.text }}</span>
+        </div>
+      </div>
     </div>
 </div>
 </div>

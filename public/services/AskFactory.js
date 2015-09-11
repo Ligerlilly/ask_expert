@@ -10,14 +10,16 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
 
   factory.questionData = {};
   factory.questionFormData = {};
-  $http.get('/questions')
-    .success(function(data) {
-      factory.questionData = data;
-      console.log(data);
-    })
-    .error(function(error) {
-      console.log('Error: ' + error);
-    });
+  factory.getQuestions = function() {
+    $http.get('/questions')
+      .success(function(data) {
+        factory.questionData = data;
+        console.log(data);
+      })
+      .error(function(error) {
+        console.log('Error: ' + error);
+      });
+  };
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
     .success(function(data){
