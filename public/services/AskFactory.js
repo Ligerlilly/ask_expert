@@ -1,11 +1,25 @@
-askExpert.factory('AskFactory',['$state', function AskFactory($state) {
+askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $http) {
   var factory = {};
-  factory.questions = [];
+  //factory.questions = [];
   factory.answers = [];
-  factory.addQuestion = function() {
-    factory.questions.push({ question: factory.questionText, question_id: factory.questions.length + 1 });
-    factory.questionText = null;
-    $state.go('home');
+  // factory.addQuestion = function() {
+  //   factory.questions.push({ question: factory.questionText, question_id: factory.questions.length + 1 });
+  //   factory.questionText = null;
+  //   $state.go('home');
+  // };
+
+  factory.questionData = {};
+  factory.questionFormData = {};
+  factory.createQuestion = function() {
+    $http.post('/questions', factory.questionFormData)
+    .success(function(data){
+      factory.questionFormData = {};
+      factory.questionData = data;
+      console.log(data);
+    })
+    .error(function(error) {
+      console.log('Error: ' + error);
+    });
   };
 
   factory.addAnswer = function() {
