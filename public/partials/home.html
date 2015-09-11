@@ -1,9 +1,13 @@
 <div class='ui vertically divided three column grid' ng-init='AskFactory.getQuestions()'>
   <div class='row'>
     <div class='column' ng-repeat='question in AskFactory.questionData'>
+      <div class='ui checkbox'>
+        <input type="checkbox" ng-click="AskFactory.deleteQuestion(question.id)">
+        <label>Delete question</label>
+      </div>
       <div class="item">
         <div class="image">
-          <img src="http://placehold.it/300x200" alt="placeholder" />
+          <img src="http://placehold.it/200x150" alt="placeholder" />
         </div>
         <div class="middle aligned content">
           <span class="ui large red label">Q</span> <span>{{ question.text }}</span>

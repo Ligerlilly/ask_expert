@@ -32,6 +32,16 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
     });
     $state.go('home');
   };
+  factory.deleteQuestion = function(questionId) {
+    $http.delete('/questions/' + questionId)
+      .success(function(data) {
+        factory.questionData = data;
+        console.log(data);
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+  };
 
   factory.addAnswer = function() {
     factory.answers.push({ response: factory.answerText, question_id: factory.questionId });

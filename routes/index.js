@@ -54,13 +54,13 @@ router.get('/questions', function(req, res) {
   });
 });
 
-router.put('/questions/:question_id', function(req, res) {
+router.put('/questions/:questionId', function(req, res) {
   var results = [];
-  var id = req.params.question_id;
+  var id = req.params.questionId;
   var data = { text: req.body.text };
   pg.connect(connectionString, function(err, client, done) {
     client.query('UPDATE items SET text=($1) WHERE id=($2)', [data.text, id]);
-    var query client.query('SELECT * FROM queries ORDER BY id ASC;');
+    var query = client.query('SELECT * FROM queries ORDER BY id ASC;');
     query.on('row', function() {
       results.push(row);
     });
@@ -76,10 +76,10 @@ router.put('/questions/:question_id', function(req, res) {
   });
 });
 
-router.delete('/questions/:question_id', function(req, res) {
+router.delete('/questions/:questionId', function(req, res) {
   var results = [];
-  var id = req.params.question_id
-
+  var id = req.params.questionId
+  console.log(id);
   pg.connect(connectionString, function(err, client, done) {
     client.query('DELETE FROM queries WHERE id = ($1)', [id]);
     var query = client.query("SELECT * FROM queries ORDER BY id ASC;");
@@ -100,11 +100,11 @@ router.delete('/questions/:question_id', function(req, res) {
 });
 
 
-router.get('/questions/:question_id', function(req, res) {
+router.get('/questions/:questionId', function(req, res) {
   var results = [];
-  var id = req.params.question_id
+  var id = req.params.questionId
   pg.connect(connectionString, function(err, client, done) {
-    var query = client.query("SELECT * FORM queries WHERE id = ($1);", [id]);
+    var query = client.query("SELECT * FROM queries WHERE id = ($1);", [id]);
 
     query.on('row', function(row) {
       results.push(row);
