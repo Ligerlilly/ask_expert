@@ -54,6 +54,72 @@ router.get('/questions', function(req, res) {
   });
 });
 
+router.put('/questions/:question_id', function(req, res) {
+  var results = [];
+  var id = req.params.question_id;
+  var data = { text: req.body.text };
+  pg.connect(connectionString, function(err, client, done) {
+    client.query('UPDATE items SET text=($1) WHERE id=($2)', [data.text, id]);
+    var query client.query('SELECT * FROM queries ORDER BY id ASC;');
+    query.on('row', function() {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
+router.delete('/questions/:question_id', function(req, res) {
+  var results = [];
+  var id = req.params.question_id
+
+  pg.connect(connectionString, function(err, client, done) {
+    client.query('DELETE FROM queries WHERE id = ($1)', [id]);
+    var query = client.query("SELECT * FROM queries ORDER BY id ASC;");
+
+    query.on('row', function(row) {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
+
+router.get('/questions/:question_id', function(req, res) {
+  var results = [];
+  var id = req.params.question_id
+  pg.connect(connectionString, function(err, client, done) {
+    var query = client.query("SELECT * FORM queries WHERE id = ($1);", [id]);
+
+    query.on('row', function(row) {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if (err) {
+      console.log(err);
+    }
+  });
+});
 
 
 module.exports = router;
