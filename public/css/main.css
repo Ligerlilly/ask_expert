@@ -13,3 +13,8 @@ nav {
 nav ul a {
   color: black;
 }
+
+#show {
+  width: 500px;
+  margin: 0 auto;
+}

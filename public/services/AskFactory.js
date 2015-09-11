@@ -37,9 +37,22 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       .success(function(data) {
         factory.questionData = data;
         console.log(data);
+        $state.go('home');
       })
       .error(function(data) {
         console.log('Error: ' + data);
+      });
+  };
+
+  factory.getQuestion = function(questionId) {
+    $http.get('/questions/' + questionId)
+      .success(function(data) {
+        factory.questionData = data;
+        console.log(data);
+        $state.go('questionShow');
+      })
+      .error(function(data) {
+        console.log('Error: ' +data);
       });
   };
 
