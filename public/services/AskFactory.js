@@ -10,14 +10,14 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
 
   factory.questionData = {};
   factory.questionFormData = {};
-  // $http.get('/questions')
-  //   .success(function(data) {
-  //     factory.questionData = data;
-  //     console.log(data);
-  //   })
-  //   .err(function(error) {
-  //     console.log('Error: ' + error);
-  //   });
+  $http.get('/questions')
+    .success(function(data) {
+      factory.questionData = data;
+      console.log(data);
+    })
+    .error(function(error) {
+      console.log('Error: ' + error);
+    });
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
     .success(function(data){
@@ -28,6 +28,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
     .error(function(error) {
       console.log('Error: ' + error);
     });
+    $state.go('home');
   };
 
   factory.addAnswer = function() {

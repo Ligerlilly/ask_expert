@@ -1,15 +1,8 @@
-<div class="row">
-  <div class="col s12">
-    <form ng-submit='AskFactory.createQuestion()' class='ui form' role='form'>
-      <div class='field'>
-        <label>Question</label>
-        <input type="text" ng-model='AskFactory.questionFormData.text' placeholder='Enter your question'>
-      </div>
-      <button type='submit' class='ui button' >Submit</button>
-    </form>
 
+<form ng-submit='AskFactory.createQuestion()' class='ui form' role='form'>
+  <div class='field'>
+    <label>Question</label>
+    <textarea ng-model='AskFactory.questionFormData.text' placeholder='Enter your question'></textarea>
   </div>
-  <ul>
-    <li ng-repeat='question in questionData'>{{ question }}</li>
-  </ul>
-</div>
+  <button type='submit' class='ui button' >Submit</button>
+</form>

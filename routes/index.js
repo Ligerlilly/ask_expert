@@ -33,11 +33,11 @@ router.post('/questions', function(req, res) {
   });
 });
 
-router.get('/questions', function() {
+router.get('/questions', function(req, res) {
   var results = [];
 
   pg.connect(connectionString, function(err, client, done) {
-    var query = client.query('SELECT * FROM quentions ORDER BY id ASK;');
+    var query = client.query('SELECT * FROM queries ORDER BY id ASC;');
 
     query.on('row', function(row) {
       results.push(row);
