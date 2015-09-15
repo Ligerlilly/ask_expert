@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/questions';
+var connectionString = process.env.DATABASE_URL || 'postgres://lono:monkeypoo0@localhost:5432/questions';
 var pg = require('pg');
 
 router.get('/', function(req, res) {
@@ -34,7 +34,7 @@ router.post('/questions', function(req, res) {
 });
 
 router.get('/questions', function(req, res) {
-  console.log('hi');
+  console.log('ok');
   var results = [];
 
   pg.connect(connectionString, function(err, client, done) {
@@ -79,7 +79,7 @@ router.put('/questions/:questionId', function(req, res) {
 
 router.delete('/questions/:questionId', function(req, res) {
   var results = [];
-  var id = req.params.questionId
+  var id = req.params.questionId;
   pg.connect(connectionString, function(err, client, done) {
     client.query('DELETE FROM queries WHERE id = ($1)', [id]);
     var query = client.query("SELECT * FROM queries ORDER BY id ASC;");
@@ -101,8 +101,9 @@ router.delete('/questions/:questionId', function(req, res) {
 
 
 router.get('/questions/:questionId', function(req, res) {
+  //console.log('hmm');
   var results = [];
-  var id = req.params.questionId
+  var id = req.params.questionId;
   pg.connect(connectionString, function(err, client, done) {
     var query = client.query("SELECT * FROM queries WHERE id = ($1);", [id]);
 

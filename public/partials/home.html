@@ -1,6 +1,6 @@
-<div class='ui vertically divided three column grid' ng-init='AskFactory.getQuestions()'>
+<div class='ui vertically divided three column grid' >
   <div class='row'>
-    <div class='column' ng-repeat='question in AskFactory.questionData'>
+    <div class='column' ng-repeat='question in questionData'>
       <div class='ui checkbox'>
         <input type="checkbox" ng-click="AskFactory.deleteQuestion(question.id)">
         <label>Delete question</label>

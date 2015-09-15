@@ -1,10 +1,11 @@
 var askExpert = angular.module('askExpert', ['ui.router']);
 
+
 askExpert.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '',
     templateUrl: 'partials/home.html',
-    controller: 'QuestionCtrl'
+    controller: 'MainCtrl',
   });
   $stateProvider.state('questions', {
     url: '/questions',
@@ -14,7 +15,7 @@ askExpert.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('questionShow', {
     url: '/questions/:questionId',
     templateUrl: 'partials/questionShow.html',
-    controller: 'QuestionCtrl.AskFactory.getQuestion(:questionId)'
+    controller: "QuestionCtrl"
   });
   $stateProvider.state('questionShow.edit', {
     url: '/qestions/:question_id/edit',

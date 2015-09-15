@@ -10,16 +10,17 @@
     <script src="semantic/dist/semantic.min.js"></script>
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
     <script src='controllers/QuestionsController.js'></script>
+    <script src='controllers/MainController.js'></script>
     <script src='services/AskFactory.js'></script>
   </head>
   <body>
     <div class='ui secondary pointing menu'>
-      <a class='item' href='/'>Home</a>
+      <a class='item' ui-sref='home'>Home</a>
 
     </div>
     <img class= 'big_pic' src='http://soulcraftwoodshop.com/wp-content/uploads/2012/05/bg_woodworking_banner.jpg' alt="wood working" />
     <div class='ui secondary pointing menu'>
-      <a class='item' href='/'>Home</a>
+      <a class='item' ui-sref='home'>Home</a>
       <a ui-sref='questions' class='item'>Ask Expert</a>
 
     </div>

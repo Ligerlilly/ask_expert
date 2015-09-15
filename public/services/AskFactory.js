@@ -7,6 +7,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   //   factory.questionText = null;
   //   $state.go('home');
   // };
+  //ng-init='AskFactory.getQuestions()'
 
   factory.questionData = {};
   factory.questionFormData = {};
@@ -19,6 +20,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       .error(function(error) {
         console.log('Error: ' + error);
       });
+
   };
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
