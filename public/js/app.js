@@ -14,6 +14,11 @@ askExpert.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('questionShow', {
     url: '/questions/:questionId',
     templateUrl: 'partials/questionShow.html',
+    controller: 'QuestionCtrl.AskFactory.getQuestion(:questionId)'
+  });
+  $stateProvider.state('questionShow.edit', {
+    url: '/qestions/:question_id/edit',
+    templateUrl: 'partials/questionEdit.html',
     controller: 'QuestionCtrl'
   });
 });

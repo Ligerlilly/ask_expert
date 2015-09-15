@@ -49,11 +49,22 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       .success(function(data) {
         factory.questionData = data;
         console.log(data);
-        $state.go('questionShow');
+        //$state.go('questionShow');
       })
       .error(function(data) {
-        console.log('Error: ' +data);
+        console.log('Error: ' + data);
       });
+  };
+
+  factory.updateQuestion = function(questionId) {
+    $http.put('/question/' + questionId)
+    .success(function(data) {
+      factory.questionData = data;
+      console.log(data);
+    })
+    .error(function(data) {
+      console.log('Error:' + data);
+    });
   };
 
   factory.addAnswer = function() {

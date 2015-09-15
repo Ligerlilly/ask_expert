@@ -34,6 +34,7 @@ router.post('/questions', function(req, res) {
 });
 
 router.get('/questions', function(req, res) {
+  console.log('hi');
   var results = [];
 
   pg.connect(connectionString, function(err, client, done) {
@@ -79,7 +80,6 @@ router.put('/questions/:questionId', function(req, res) {
 router.delete('/questions/:questionId', function(req, res) {
   var results = [];
   var id = req.params.questionId
-  console.log(id);
   pg.connect(connectionString, function(err, client, done) {
     client.query('DELETE FROM queries WHERE id = ($1)', [id]);
     var query = client.query("SELECT * FROM queries ORDER BY id ASC;");
