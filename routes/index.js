@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var connectionString = process.env.DATABASE_URL || 'postgres://lono:monkeypoo0@localhost:5432/questions';
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/questions';
 var pg = require('pg');
 
 router.get('/', function(req, res) {
