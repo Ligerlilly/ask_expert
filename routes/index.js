@@ -59,10 +59,11 @@ router.put('/questions/:questionId', function(req, res) {
   var results = [];
   var id = req.params.questionId;
   var data = { text: req.body.text };
+  console.log(data.text);
   pg.connect(connectionString, function(err, client, done) {
-    client.query('UPDATE items SET text=($1) WHERE id=($2)', [data.text, id]);
+    client.query('UPDATE queries SET text=($1) WHERE id=($2)', [data.text, id]);
     var query = client.query('SELECT * FROM queries ORDER BY id ASC;');
-    query.on('row', function() {
+    query.on('row', function(row) {
       results.push(row);
     });
 

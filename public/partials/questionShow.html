@@ -1,19 +1,26 @@
-
-<div class='ui raised segment'  id='show'>
-  <div class='ui checkbox'>
-    <input type="checkbox" >
-    <label>Update question</label>
-  </div>
-  <div class='ui checkbox'>
-    <input type="checkbox" ng-click="AskFactory.deleteQuestion(AskFactory.questionData[0].id)">
-    <label>Delete question</label>
-  </div>
-  <div class="item">
-    <div class="image">
-      <img src="http://placehold.it/400x300" alt="placeholder" />
+<div class="ui two column grid">
+  <div class="column">
+    <div class='ui segment'  id='show'>
+      <div class='ui checkbox'>
+        <a ui-sref="questionShow.edit"><input type="checkbox"  >
+    </a>
+        <label>Update question</label>
+      </div>
+      <div class='ui checkbox'>
+        <input type="checkbox" ng-click="AskFactory.deleteQuestion(AskFactory.questionData[0].id)">
+        <label>Delete question</label>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="http://placehold.it/400x300" alt="placeholder" />
+        </div>
+        <div class="middle aligned content">
+          <span class="ui large red label">Q</span> <span>{{ AskFactory.questionData[0].text }}</span>
+        </div>
+      </div>
     </div>
-    <div class="middle aligned content">
-      <span class="ui large red label">Q</span> <span>{{ AskFactory.questionData[0].text }}</span>
-    </div>
+  </div>
+  <div class="column">
+    <div class='ui segment' ui-view></div>
   </div>
 </div>

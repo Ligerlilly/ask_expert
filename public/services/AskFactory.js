@@ -41,18 +41,19 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       .success(function(data) {
         factory.questionData = data;
         console.log(data);
-        //$state.go('questionShow');
+
       })
       .error(function(data) {
         console.log('Error: ' + data);
       });
   };
 
-  factory.updateQuestion = function(questionId) {
-    $http.put('/question/' + questionId)
+  factory.updateQuestion = function(questionData) {
+    $http.put('/questions/' + questionData.id, questionData)
     .success(function(data) {
       factory.questionData = data;
       console.log(data);
+      $state.go('home');
     })
     .error(function(data) {
       console.log('Error:' + data);
