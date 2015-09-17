@@ -9,7 +9,7 @@ askExpert.config(function($stateProvider, $urlRouterProvider) {
   });
   $stateProvider.state('questions', {
     url: '/questions',
-    templateUrl: 'partials/questions.html',
+    templateUrl: 'partials/questionsCreate.html',
     controller: 'QuestionCtrl'
   });
   $stateProvider.state('questionShow', {

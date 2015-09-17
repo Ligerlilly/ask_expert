@@ -18,11 +18,11 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       factory.questionFormData = {};
       factory.questionData = data;
       console.log(data);
+      $state.go('home');
     })
     .error(function(error) {
       console.log('Error: ' + error);
     });
-    $state.go('home');
   };
   factory.deleteQuestion = function(questionId) {
     $http.delete('/questions/' + questionId)
@@ -37,7 +37,6 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   };
 
   factory.getQuestion = function(questionId) {
-    console.log('test');
     $http.get('/questions/' + questionId)
       .success(function(data) {
         factory.questionData = data;
