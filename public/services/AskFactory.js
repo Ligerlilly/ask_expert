@@ -11,10 +11,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
 
   factory.questionData = {};
   factory.questionFormData = {};
-  factory.getQuestions = function() {
-    
 
-  };
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
     .success(function(data){
@@ -40,6 +37,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   };
 
   factory.getQuestion = function(questionId) {
+    console.log('test');
     $http.get('/questions/' + questionId)
       .success(function(data) {
         factory.questionData = data;
