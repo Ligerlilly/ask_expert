@@ -2,7 +2,7 @@
   <div class="column">
     <div class='ui segment'  id='show'>
       <div class='ui checkbox'>
-        <a ui-sref="questionShow.edit"><input type="checkbox"  >
+        <a  ui-sref="questionShow.edit"><input type="checkbox" ng-click='AskFactory.hide=false' >
     </a>
         <label>Update question</label>
       </div>
@@ -19,8 +19,10 @@
         </div>
       </div>
     </div>
+    <a  ui-sref="questionShow.answer" ><button class="ui red button">Answer</button></a>
   </div>
-  <div class="column">
-    <div class='ui segment' ui-view></div>
+
+  <div class="column" id='form'>
+    <div class='ui segment' ng-hide='AskFactory.hide' ui-view></div>
   </div>
 </div>

@@ -22,4 +22,9 @@ askExpert.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'partials/questionEdit.html',
     controller: 'QuestionCtrl'
   });
+  $stateProvider.state("questionShow.answer", {
+    url: '/answer',
+    templateUrl: 'partials/questionAnswer.html',
+    controller: "AnswerCtrl"
+  });
 });

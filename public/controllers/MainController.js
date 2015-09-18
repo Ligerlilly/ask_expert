@@ -8,6 +8,7 @@ askExpert.controller('MainCtrl', ['$scope', '$http', 'AskFactory', function($sco
     .error(function(error) {
       console.log('Error: ' + error);
     });
+    AskFactory.hide = true;
 
     $scope.AskFactory = AskFactory;
     $scope.questionData = AskFactory.questionData;

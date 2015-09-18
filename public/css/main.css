@@ -16,5 +16,6 @@ nav ul a {
 
 #show {
   width: 500px;
+  margin-bottom: 1em;
   margin: 0 auto;
 }

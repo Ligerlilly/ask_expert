@@ -11,6 +11,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
 
   factory.questionData = {};
   factory.questionFormData = {};
+  factory.hide = true;
 
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
