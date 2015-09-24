@@ -1,1 +1,9 @@
-<h1>hi</h1>
+<div >
+  <form ng-submit='AskFactory.createAnswer()' class='ui form' role='form'>
+    <div class='field'>
+      <label>Answer</label>
+      <textarea ng-model='AskFactory.answerFormData.text'></textarea>
+    </div>
+    <button type='submit' class='ui button' >Submit</button>
+  </form>
+</div>

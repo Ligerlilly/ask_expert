@@ -5,6 +5,7 @@
         <input type="checkbox" ng-click="AskFactory.deleteQuestion(question.id)">
         <label>Delete question</label>
       </div>
+      <a href='#'   ui-sref="questionShow({ questionId: question.id })" >
       <div class="item">
         <div class="image">
           <img src="http://placehold.it/200x150" alt="placeholder" />
@@ -12,8 +13,9 @@
         <div class="middle aligned content">
           <span class="ui large red label">Q</span> <span>{{ question.text }}</span>
         </div>
-        <a href='#'   ui-sref="questionShow({ questionId: question.id })" >show</a>
+
       </div>
+    </a>
     </div>
   </div>
 </div>

@@ -19,7 +19,9 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       factory.questionFormData = {};
       factory.questionData = data;
       console.log(data);
-      $state.go('home');
+      
+
+      $state.go('questionShow',{"questionId": data[data.length-1].id});
     })
     .error(function(error) {
       console.log('Error: ' + error);

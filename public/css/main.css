@@ -19,3 +19,8 @@ nav ul a {
   margin-bottom: 1em;
   margin: 0 auto;
 }
+#answerButton {
+  float: right;
+  margin-right: 20px;
+  margin-top: 5px;
+}
