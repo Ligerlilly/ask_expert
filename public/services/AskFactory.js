@@ -13,6 +13,14 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   factory.questionFormData = {};
   factory.hide = true;
   factory.answerdata = {};
+  factory.findAnswers = function(questionId) {
+    found_answers = []
+    factory.answerData.forEach(function(answer) {
+      if (answer.question_id === questionId) {
+        found_answers.push(answer);
+      }
+    });
+  };
   factory.createAnswer = function(questionId) {
     factory.answerFormData.question_id = questionId;
     $http.post('/answers', factory.answerFormData)
@@ -26,6 +34,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       console.log('Error' + data);
     });
   };
+
 
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
