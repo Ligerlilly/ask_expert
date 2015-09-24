@@ -8,6 +8,29 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../views', 'index.html'));
 });
 
+router.post('/answers', function(req, res) {
+  var results = [];
+  var data = { text: req.body.text, question_id: req.body.question_id };
+  pg.connect(connectionString, function(err, client, done) {
+    client.query('INSERT INTO replies (text, query_id) VALUES ($1, $2)', [data.text, data.question_id]);
+
+    var query = client.query('SELECT * FROM replies ORDER BY id ASC');
+
+    query.on('row', function(row) {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if(err){
+      console.log(err);
+    }
+  });
+});
+
 router.post('/questions', function(req, res) {
   var results = [];
 

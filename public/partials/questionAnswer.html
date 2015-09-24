@@ -1,5 +1,5 @@
 <div >
-  <form ng-submit='AskFactory.createAnswer()' class='ui form' role='form'>
+  <form ng-submit='AskFactory.createAnswer(AskFactory.questionData[0].id)' class='ui form' role='form'>
     <div class='field'>
       <label>Answer</label>
       <textarea ng-model='AskFactory.answerFormData.text'></textarea>
