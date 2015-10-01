@@ -19,6 +19,13 @@
         </div>
       </div>
     </div>
+    <div class="item" ng-repeat='answer in AskFactory.findAnswers(AskFactory.questionData[0].id)'>
+      <div class="middle aligned content">
+        <p>
+          {{answer}}
+        </p>
+      </div>
+    </div>
     <a  ui-sref="questionShow.answer" id='answerButton'><button class="ui green button">Answer</button></a>
   </div>
 

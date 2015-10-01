@@ -12,13 +12,15 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   factory.questionData = {};
   factory.questionFormData = {};
   factory.hide = true;
-  factory.answerdata = {};
+  factory.answerData = {};
   factory.findAnswers = function(questionId) {
-    found_answers = []
+    found_answers = [];
     factory.answerData.forEach(function(answer) {
       if (answer.question_id === questionId) {
         found_answers.push(answer);
+        return found_answers;
       }
+      return null;
     });
   };
   factory.createAnswer = function(questionId) {
