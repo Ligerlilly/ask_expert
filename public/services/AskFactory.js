@@ -16,11 +16,11 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   factory.findAnswers = function(questionId) {
     found_answers = [];
     factory.answerData.forEach(function(answer) {
-      if (answer.question_id === questionId) {
+      if (answer.query_id === parseInt(questionId)) {
         found_answers.push(answer);
-        return found_answers;
+
       }
-      return null;
+      factory.answerData = found_answers;
     });
   };
   factory.createAnswer = function(questionId) {
@@ -30,13 +30,24 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
       factory.answerFormData = {};
       factory.answerData = data;
       console.log(data);
-      $state.go('home');
+      $state.go('questionShow', {questionId: questionId});
     })
     .error(function(data) {
       console.log('Error' + data);
     });
   };
 
+  factory.deleteAnswer = function(questionId, answerId) {
+    $http.delete('/questions/' + questionId + '/answers/' + answerId)
+      .success(function(data) {
+          console.log(data);
+          factory.answerData = data;
+          $state.go('questionShow', {questionId: questionId});
+      })
+      .error(function(data) {
+        console.log("Error" + data);
+      });
+  };
 
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)

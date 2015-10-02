@@ -52,6 +52,30 @@ router.get('/answers', function(req, res) {
 
 });
 
+router.delete('/questions/:questionId/answers/:answerId', function(req, res) {
+  var results = [];
+  var id = req.params.answerId;
+  var questionId = req.params.questionId
+  pg.connect(connectionString, function(err, client, done) {
+    client.query('DELETE FROM replies WHERE id = ($1)', [id]);
+    var query = client.query("SELECT * FROM replies WHERE query_id = ($1) ORDER BY id ASC;", [questionId]);
+
+    query.on('row', function(row) {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if (err) {
+      console.log(err);
+    }
+  });
+
+});
+
 router.post('/questions', function(req, res) {
   var results = [];
 
