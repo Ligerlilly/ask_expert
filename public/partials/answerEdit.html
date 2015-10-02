@@ -1,0 +1,9 @@
+<div>
+  <form ng-submit='AskFactory.updateAnswer(AskFactory.answer, AskFactory.questionData[0].id)' class='ui form' role='form'>
+    <div class='field'>
+      <label>Answer</label>
+      <textarea ng-model='AskFactory.answer.text'></textarea>
+    </div>
+    <button type='submit' class='ui button' ng-click='AskFactory.hide=true'>Submit</button>
+  </form>
+</div>

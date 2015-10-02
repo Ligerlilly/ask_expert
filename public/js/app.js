@@ -27,4 +27,9 @@ askExpert.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'partials/questionAnswer.html',
     controller: "AnswerCtrl"
   });
+  $stateProvider.state('questionShow.answerEdit', {
+    url: '/answer/:answerId/edit',
+    templateUrl: 'partials/answerEdit.html',
+    controller: 'AnswerCtrl'
+  })
 });

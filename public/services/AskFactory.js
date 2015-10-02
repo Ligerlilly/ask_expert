@@ -13,6 +13,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
   factory.questionFormData = {};
   factory.hide = true;
   factory.answerData = {};
+  factory.answer = {};
   factory.findAnswers = function(questionId) {
     found_answers = [];
     factory.answerData.forEach(function(answer) {
@@ -48,6 +49,20 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
         console.log("Error" + data);
       });
   };
+
+  factory.updateAnswer = function(answer, questionId) {
+    $http.put('/questions/' + questionId + '/answers/' + answer.id, answer)
+    .success(function(data) {
+      console.log(data);
+      factory.answerData = data;
+      $state.go('questionShow', {questionId: questionId});
+    })
+    .error(function(data) {
+      console.log('Error:' + data);
+    });
+  };
+
+
 
   factory.createQuestion = function() {
     $http.post('/questions', factory.questionFormData)
@@ -92,7 +107,7 @@ askExpert.factory('AskFactory',['$state','$http', function AskFactory($state, $h
     .success(function(data) {
       factory.questionData = data;
       console.log(data);
-      $state.go('home');
+      $state.go('questionShow', {questionId: questionData.id});
     })
     .error(function(data) {
       console.log('Error:' + data);
