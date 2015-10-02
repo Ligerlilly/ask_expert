@@ -15,8 +15,9 @@ nav ul a {
 }
 
 .show {
-  width: 500px;
+  width: 40.125rem;
   margin-bottom: 1em;
+
   margin: 0 auto;
 }
 #answerButton {
@@ -27,4 +28,7 @@ nav ul a {
 }
 #boxes {
   margin-bottom: 1em;
+}
+.edit {
+  width: 30rem;
 }
